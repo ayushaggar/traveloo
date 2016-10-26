@@ -1,5 +1,5 @@
 angular.module('MyApp')
-  .controller('MarkinCtrl', function($scope, $http, $auth, toastr, Account) {
+  .controller('MarkinCtrl', function($scope, $auth, toastr, Account, $http, NgMap, ngGPlacesAPI) {
     $scope.getProfile = function() {
       Account.getProfile()
         .then(function(response) {
@@ -92,7 +92,6 @@ angular.module('MyApp')
         return '';
       }
 
-
       $scope.mytime = new Date();
 
       $scope.hstep = 1;
@@ -103,8 +102,23 @@ angular.module('MyApp')
         $scope.ismeridian = ! $scope.ismeridian;
       };
 
+      $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC-NYuKvQBIVbmZjiBs5m3WJVW_Iws_LfA";
 
+      var vm = this;
+      this.address = "Delhi";
 
+      vm.placeChanged = function() {
+          vm.place = this.getPlace();
+          vm.map.setCenter(vm.place.geometry.location);
+      }
 
+      NgMap.getMap().then(function(map) {
+          vm.map = map;
+      });
 
+      $scope.data = ngGPlacesAPI.nearbySearch({latitude:-33.8665433, longitude:151.1956316}).then(
+        function(data){
+          console.log(data);
+          return data;
+        });
   });

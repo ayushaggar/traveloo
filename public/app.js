@@ -1,4 +1,4 @@
-angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.router', 'satellizer', 'ui.bootstrap', 'ui.bootstrap.datetimepicker','angular-timeline'])
+angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.router', 'satellizer', 'ui.bootstrap', 'ui.bootstrap.datetimepicker','angular-timeline','ngMap','ngGPlaces'])
   .config(function($stateProvider, $urlRouterProvider, $authProvider) {
 
     /**
@@ -66,6 +66,30 @@ angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.
           loginRequired: loginRequired
         }
       })
+      .state('filter', {
+        url: '/markin',
+        templateUrl: 'partials/markin.html',
+        controller: 'FilterController',
+        resolve: {
+          loginRequired: loginRequired
+        }
+      })
+      .state('search', {
+        url: '/markin',
+        templateUrl: 'partials/markin.html',
+        controller: 'AppController',
+        resolve: {
+          loginRequired: loginRequired
+        }
+      })
+      .state('detail', {
+        url: '/markin',
+        templateUrl: 'partials/markin.html',
+        controller: 'DetailController',
+        resolve: {
+          loginRequired: loginRequired
+        }
+      })
       .state('dashboard', {
         url: '/dashboard',
         templateUrl: 'partials/dashboard.html',
@@ -95,4 +119,5 @@ angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.
       redirectUri: window.location.origin || window.location.protocol + '//' + window.location.host,
       authorizationEndpoint: 'https://foursquare.com/oauth2/authenticate'
     });
+
   });

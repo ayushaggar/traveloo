@@ -44,7 +44,18 @@
     <div class="col-sm-6">
       <div class="panel panel-default">
         <div class="panel-heading">Search</div>
-        <div class="panel-body">
+        <div class="panel-body" ng-controller="MarkinCtrl as vm">
+            <button type="button" class="btn btn-primary" ng-click="filterClick()">Filter</button>
+            <input type="search" placeholder="Search" class="form-control" places-auto-complete size=35 ng-model="vm.address" on-place-changed="vm.placeChanged()" /> <br/>
+            <div ng-show="vm.place">
+              Address = {{vm.place.formatted_address}} <br/>
+              Location = {{vm.place.geometry.location}}<br/>
+              Nearby Places = {{data || "loading..."}}<br/>
+            </div>
+            <br>
+              <ng-map center="{{vm.address}}" zoom="10" >
+                  <marker position="{{vm.address}}" title="{{address}}"></marker>
+              </ng-map>
         </div>
       </div>
     </div>
