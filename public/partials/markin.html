@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">About</div>
+        <div class="panel-body">
+          <legend><i class="ion-clipboard"></i> Edit Place</legend>
+          <form method="post" ng-submit="updateProfile()">
+            <div class="form-group">
+              <label class="control-label"><i class="ion-person"></i>Place Name</label>
+              <input type="text" class="form-control" ng-model="user.displayName" />
+            </div>
+
+            <div class="form-group">
+              <label class="control-label"><i class="ion-person"></i>Pick a date and time</label>
+              <p class="input-group">
+                <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open1()"><i class="fa fa-calendar"></i></button>
+                </span>
+                <div uib-timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></div>
+              </p>
+            </div>
+
+            <div class="form-group">
+              <label for="sel1">Priority:</label>
+                <select class="form-control" id="sel1">
+                  <option>High</option>
+                  <option>Average</option>
+                  <option>low</option>
+                </select>
+              <br>
+              <label class="control-label"><span class="glyphicon glyphicon-pencil"></span>Description</label>
+              <textarea class="form-control" rows="3" id="comment" ng-model="user.email"></textarea>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="optradio">Visited</label>
+            </div>
+            <button class="btn btn-lg btn-success">Update Place</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">Search</div>
+        <div class="panel-body">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -12,21 +12,23 @@
   <link href="//cdn.jsdelivr.net/animatecss/3.2.0/animate.css" rel="stylesheet">
   <link href="/stylesheets/angular-toastr.css" rel="stylesheet">
   <link href="/stylesheets/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/dist/angular-timeline.css"/>
 </head>
 <body>
 <div ng-controller="NavbarCtrl" class="navbar navbar-default navbar-static-top">
   <div class="navbar-header">
     <a class="navbar-brand" href="/"><i class="ion-ios7-pulse-strong"></i> Traveloo</a>
   </div>
-  <ul class="nav navbar-nav">
-    
-    <li ng-if="isAuthenticated()"><a href="/#/profile">Profile</a></li>
-  </ul>
   <ul ng-if="!isAuthenticated()" class="nav navbar-nav pull-right">
     <li><a href="/#/login">Login</a></li>
     <li><a href="/#/signup">Sign up</a></li>
   </ul>
+  <ul ng-if="isAuthenticated()" class="nav navbar-nav pull-left">
+    <li><a href="/#/markin">Search Place</a></li>
+  </ul>
   <ul ng-if="isAuthenticated()" class="nav navbar-nav pull-right">
+    <li><a href="/#/dashboard">My places</a></li>
+    <li><a href="/#/profile">Profile</a></li>
     <li><a href="/#/logout">Logout</a></li>
   </ul>
 </div>
@@ -42,6 +44,9 @@
 <script src="/vendor/angular-ui-router.js"></script>
 <script src="/vendor/angular-toastr.tpls.js"></script>
 <script src="/vendor/satellizer.js"></script>
+<script src="/vendor/dist/ui-bootstrap-custom-build/ui-bootstrap-custom-tpls-2.2.0.min.js"></script>
+<script src="/vendor/datetime-picker.js"></script>
+<script src="/vendor/dist/angular-timeline.js"></script>
 
 <!-- Application Code -->
 <script src="/app.js"></script>
@@ -53,6 +58,8 @@
 <script src="/controllers/logout.js"></script>
 <script src="/controllers/profile.js"></script>
 <script src="/controllers/navbar.js"></script>
+<script src="/controllers/markin.js"></script>
+<script src="/controllers/dashboard.js"></script>
 <script src="/services/account.js"></script>
 </body>
 </html>

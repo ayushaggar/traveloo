@@ -1,4 +1,4 @@
-angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.router', 'satellizer'])
+angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.router', 'satellizer', 'ui.bootstrap', 'ui.bootstrap.datetimepicker','angular-timeline'])
   .config(function($stateProvider, $urlRouterProvider, $authProvider) {
 
     /**
@@ -57,7 +57,24 @@ angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.
         resolve: {
           loginRequired: loginRequired
         }
+      })
+      .state('markin', {
+        url: '/markin',
+        templateUrl: 'partials/markin.html',
+        controller: 'MarkinCtrl',
+        resolve: {
+          loginRequired: loginRequired
+        }
+      })
+      .state('dashboard', {
+        url: '/dashboard',
+        templateUrl: 'partials/dashboard.html',
+        controller: 'DashboardCtrl',
+        resolve: {
+          loginRequired: loginRequired
+        }
       });
+
     $urlRouterProvider.otherwise('/');
 
     /**

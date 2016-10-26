@@ -25,3 +25,7 @@ Route::put('api/me', ['middleware' => 'auth', 'uses' => 'UserController@updateUs
 
 // Initialize Angular.js App Route.
 Route::get('/', 'HomeController@index');
+
+// Markin routes
+Route::get('new_markin', 'MarkinsController@create');
+Route::post('new_markin', 'MarkinsController@store');

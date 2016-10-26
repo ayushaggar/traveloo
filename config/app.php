@@ -3,7 +3,7 @@
 return [
 
 	'token_secret' => 'some random string',
-	'facebook_secret' => '',
+	'facebook_secret' => 'c37df1c157576812957eb60b5f7db786',
 	'foursquare_secret' => '',
 	'google_secret' => '',
 
@@ -161,7 +161,7 @@ return [
 		App\Providers\AuthServiceProvider::class,
 		App\Providers\EventServiceProvider::class,
 		App\Providers\RouteServiceProvider::class,
-
+		'GoogleMaps\ServiceProvider\GoogleMapsServiceProvider',
 	],
 
 	/*
@@ -207,7 +207,7 @@ return [
 		'URL'       => Illuminate\Support\Facades\URL::class,
 		'Validator' => Illuminate\Support\Facades\Validator::class,
 		'View'      => Illuminate\Support\Facades\View::class,
-
+		'GoogleMaps' => 'GoogleMaps\Facade\GoogleMapsFacade',
 	],
 
 ];
