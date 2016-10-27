@@ -22,6 +22,6 @@ Route::get('auth/unlink/{provider}', ['middleware' => 'auth', 'uses' => 'AuthCon
 Route::get('api/me', ['middleware' => 'auth', 'uses' => 'UserController@getUser']);
 Route::put('api/me', ['middleware' => 'auth', 'uses' => 'UserController@updateUser']);
 
-Route::post('/api/markin', 'MarkinsController@storeMarkin');
+Route::post('/api/markin', ['middleware' => 'auth', 'uses' => 'MarkinsController@storeMarkin']);
 // Initialize Angular.js App Route.
 Route::get('/', 'HomeController@index');

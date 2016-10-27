@@ -14,6 +14,7 @@ class CreateMarkinsTable extends Migration
     {
         Schema::create('markins', function (Blueprint $table) {
             $table->increments('markin_id');
+            $table->integer('user_id')->nullable();
             $table->string('title')->nullable();
             $table->date('when')->nullable();
             $table->string('status')->nullable();

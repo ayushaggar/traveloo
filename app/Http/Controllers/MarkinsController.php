@@ -6,22 +6,23 @@ use App\Markin;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\User;
 use Config;
-use Firebase\JWT\JWT;
 use Carbon\Carbon;
 
 class MarkinsController extends Controller
 {
-
       /**
        * Update markin user's control.
        */
       public function storeMarkin(Request $request)
       {
+
+        $user = User::find($request['user']['sub']);
+
         $markin = new Markin;
-
         $markin->title = $request->input('title');
-
+        $markin->user_id = $user->id;
         $markin->status = $request->input('status');
         $markin->priority = $request->input('priority');
         $markin->description = $request->input('description');

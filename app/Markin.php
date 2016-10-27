@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Markin extends Model
 {
-  protected $fillable = [
-'user_id', 'category_id', 'markin_id', 'title', 'priority', 'description', 'status','when'
-];
 
+  protected $fillable = ['title', 'priority', 'description', 'status','when'];
+
+  public function User(){
+      return $this->belongsTo('App\User');
+    }
 }
