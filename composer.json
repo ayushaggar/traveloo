@@ -11,7 +11,8 @@
 	  	"guzzlehttp/oauth-subscriber": "dev-master",
 		"fzaninotto/faker": "^1.6",
 		"alexpechkarev/google-maps": "1.0.5",
-		"toin0u/geocoder-laravel": "@stable"
+		"toin0u/geocoder-laravel": "@stable",
+		"nesbot/carbon": "~1.21"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",

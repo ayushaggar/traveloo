@@ -19,13 +19,9 @@ Route::post('auth/login', 'AuthController@login');
 Route::post('auth/signup', 'AuthController@signup');
 Route::get('auth/unlink/{provider}', ['middleware' => 'auth', 'uses' => 'AuthController@unlink']);
 
-// API Routes.
 Route::get('api/me', ['middleware' => 'auth', 'uses' => 'UserController@getUser']);
 Route::put('api/me', ['middleware' => 'auth', 'uses' => 'UserController@updateUser']);
 
+Route::post('/api/markin', 'MarkinsController@storeMarkin');
 // Initialize Angular.js App Route.
 Route::get('/', 'HomeController@index');
-
-// Markin routes
-Route::get('new_markin', 'MarkinsController@create');
-Route::post('new_markin', 'MarkinsController@store');

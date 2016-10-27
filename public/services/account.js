@@ -6,6 +6,9 @@ angular.module('MyApp')
       },
       updateProfile: function(profileData) {
         return $http.put('/api/me', profileData);
+      },
+      storeMarkin: function(markinData) {
+        return $http.post('/api/markin', markinData);
       }
     };
   });

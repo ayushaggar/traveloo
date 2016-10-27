@@ -2,21 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Markin;
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Config;
+use Firebase\JWT\JWT;
+use Carbon\Carbon;
 
 class MarkinsController extends Controller
 {
-    //
-}
 
-use App\Category;
+      /**
+       * Update markin user's control.
+       */
+      public function storeMarkin(Request $request)
+      {
+        $markin = new Markin;
 
-public function create()
-{
-    $categories = Category::all();
+        $markin->title = $request->input('title');
 
-    return view('markins.create', compact('categories'));
+        $markin->status = $request->input('status');
+        $markin->priority = $request->input('priority');
+        $markin->description = $request->input('description');
+        $markin->save();
+
+        return 'Markin record successfully created with id ' . $markin->markin_id;
+      }
 }
