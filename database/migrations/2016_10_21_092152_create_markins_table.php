@@ -20,6 +20,8 @@ class CreateMarkinsTable extends Migration
             $table->string('status')->nullable();
             $table->string('priority')->nullable();
             $table->text('description')->nullable();
+            $table->float('latitude')->nullable();
+            $table->float('longitude')->nullable();
             $table->timestamps();
 
         });

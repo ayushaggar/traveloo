@@ -4,26 +4,14 @@ angular.module('MyApp')
     $scope.getDashboard = function() {
       Account.getDashboard()
         .then(function(response) {
-          $scope.eventsss = response.data;
-          console.log($scope.eventsss);
-          $scope.events = [
-            $scope.eventsss
-          ];
+          $scope.events = response.data;
           console.log($scope.events);
         })
         .catch(function(response) {
-          toastr.error(response.data.message, response.status);
+          toastr.error(response.data.message, response.status, { timeOut: 200 });
         });
     };
 
     $scope.getDashboard();
 
-    $scope.eventss = [{
-      title: 'First Trip',
-      content: 'New-York.'},
-      {
-      title: 'Second heading',
-      content: 'More awesome content.'
-    }];
-    console.log($scope.eventss);
   });

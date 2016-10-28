@@ -4,10 +4,10 @@ angular.module('MyApp')
       console.log($scope.markin);
       Account.storeMarkin($scope.markin)
         .then(function() {
-          toastr.success('Place has been added');
+          toastr.success('Place has been added', { timeOut: 200 });
         })
         .catch(function(response) {
-          toastr.error(response.data.message, response.status);
+          toastr.error(response.data.message, response.status, { timeOut: 200 });
         });
     };
 
@@ -57,16 +57,22 @@ angular.module('MyApp')
 
       $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC-NYuKvQBIVbmZjiBs5m3WJVW_Iws_LfA";
 
-      var vm = this;
-      this.address = "Delhi";
+      var markin = this;
+      markin.address = "Delhi";
+      markin.title = "First doctor visit";
 
-      vm.placeChanged = function() {
-          vm.place = this.getPlace();
-          vm.map.setCenter(vm.place.geometry.location);
+
+      $scope.placeChanged = function() {
+          $scope.place = this.getPlace();
+          $scope.map.setCenter($scope.place.geometry.location);
+          $scope.pos = $scope.place.geometry.location;
+          markin.latitude = $scope.pos.lat();
+          markin.longitude = $scope.pos.lng()
+          console.log($scope.pos.lat(),$scope.pos.lng());
       }
 
       NgMap.getMap().then(function(map) {
-          vm.map = map;
+          $scope.map = map;
       });
 
       $scope.data = ngGPlacesAPI.nearbySearch({latitude:-33.8665433, longitude:151.1956316}).then(
@@ -74,4 +80,29 @@ angular.module('MyApp')
           console.log(data);
           return data;
         });
+
+      $scope.getCurrentLocation = function(){
+           $scope.pos = this.getPosition();
+           console.log($scope.pos.lat(),$scope.pos.lng());
+           $scope.map.setCenter($scope.pos);
+           var geocoder = new google.maps.Geocoder();
+           var latlng = new google.maps.LatLng($scope.pos.lat(), $scope.pos.lng());
+           geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+               if (status == google.maps.GeocoderStatus.OK) {
+                 if (results[1]) {
+                   markin.address = results[1].formatted_address;
+                   console.log(results[1].formatted_address);
+                   console.log(markin.address);
+                   document.getElementById("searchplace").value = markin.address;
+                   markin.latitude = $scope.pos.lat();
+                   markin.longitude = $scope.pos.lng()
+                 } else {
+                     toastr.success('Location not found - Try again', { timeOut: 200 });
+                 }
+               } else {
+                   toastr.success('Geocoder failed - Try again' , { timeOut: 200 });
+               }
+           });
+
+        }
   });

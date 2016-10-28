@@ -26,6 +26,8 @@ class MarkinsController extends Controller
         $markin->status = $request->input('status');
         $markin->priority = $request->input('priority');
         $markin->description = $request->input('description');
+        $markin->latitude= $request->input('latitude');
+        $markin->longitude = $request->input('longitude');
         $markin->save();
 
         return 'Markin record successfully created with id ' . $markin->markin_id;
@@ -34,7 +36,7 @@ class MarkinsController extends Controller
       public function getDashboard(Request $request)
       {
           $user = User::find($request['user']['sub']);
-
-          return $user;
+          $output = Markin::where('user_id','=',$user->id)->get();
+          return $output;
       }
 }

@@ -3,7 +3,7 @@ angular.module('MyApp')
     if (!$auth.isAuthenticated()) { return; }
     $auth.logout()
       .then(function() {
-        toastr.info('You have been logged out');
+        toastr.info('You have been logged out', { timeOut: 200 });
         $location.path('/');
       });
   });

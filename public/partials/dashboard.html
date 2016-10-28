@@ -1,13 +1,13 @@
 <timeline>
   <timeline-event ng-repeat="event in events">
     <timeline-badge class="warning">
-      <i class="glyphicon-check"></i>
+      <i class="glyphicon glyphicon-check"></i>
     </timeline-badge>
     <timeline-panel class="warning">
       <timeline-heading>
-        <h4>{{event.displayName}}</h4>
+        <h4>{{event.title}}</h4>
       </timeline-heading>
-      <p>{{event.email}}</p>
+      <p>{{event.description}}</p>
     </timeline-panel>
   </timeline-event>
 </timeline>
