@@ -23,5 +23,8 @@ Route::get('api/me', ['middleware' => 'auth', 'uses' => 'UserController@getUser'
 Route::put('api/me', ['middleware' => 'auth', 'uses' => 'UserController@updateUser']);
 
 Route::post('/api/markin', ['middleware' => 'auth', 'uses' => 'MarkinsController@storeMarkin']);
+Route::post('/api/dashboard', ['middleware' => 'auth', 'uses' => 'MarkinsController@getDashboard']);
+
 // Initialize Angular.js App Route.
+
 Route::get('/', 'HomeController@index');

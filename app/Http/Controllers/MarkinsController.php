@@ -30,4 +30,11 @@ class MarkinsController extends Controller
 
         return 'Markin record successfully created with id ' . $markin->markin_id;
       }
+
+      public function getDashboard(Request $request)
+      {
+          $user = User::find($request['user']['sub']);
+
+          return $user;
+      }
 }

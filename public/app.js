@@ -74,22 +74,6 @@ angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.
           loginRequired: loginRequired
         }
       })
-      .state('search', {
-        url: '/markin',
-        templateUrl: 'partials/markin.html',
-        controller: 'AppController',
-        resolve: {
-          loginRequired: loginRequired
-        }
-      })
-      .state('detail', {
-        url: '/markin',
-        templateUrl: 'partials/markin.html',
-        controller: 'DetailController',
-        resolve: {
-          loginRequired: loginRequired
-        }
-      })
       .state('dashboard', {
         url: '/dashboard',
         templateUrl: 'partials/dashboard.html',

@@ -9,6 +9,9 @@ angular.module('MyApp')
       },
       storeMarkin: function(markinData) {
         return $http.post('/api/markin', markinData);
+      },
+      getDashboard: function(dashboardData) {
+        return $http.post('/api/dashboard', dashboardData);
       }
     };
   });
