@@ -2,17 +2,18 @@
   <div class="row" ng-controller="MarkinCtrl as markin">
     <div class="col-sm-6">
       <div class="panel panel-default">
-        <div class="panel-heading">Search</div>
+        <div class="panel-heading"><label><i class="glyphicon glyphicon-search"></i> Search:</label></div>
         <div class="panel-body">
-            <button type="button" class="btn btn-primary" ng-click="filterClick()">Filter</button>
             <input id = "searchplace" type="search" placeholder="Search" class="form-control" places-auto-complete size=35 ng-model="markin.address" on-place-changed="placeChanged()" /> <br/>
             <div ng-show="markin.place">
-              Nearby Places = {{data || "loading..."}}<br/>
+              Nearby Places = {{data || "loading..."}}
             </div>
-            <br>
               <ng-map center="{{markin.address}}" zoom="10" >
                   <marker draggable="true" on-dragend="getCurrentLocation()" position="{{markin.address}}"></marker>
               </ng-map>
+              <br>
+              <button type="button" class="btn btn-primary" ng-click="filterClick()">Filter</button>
+
         </div>
       </div>
     </div>
@@ -24,12 +25,12 @@
         <legend><i class="ion-clipboard"></i> Edit Place</legend>
         <form method="post" ng-submit="storeMarkin()">
           <div class="form-group">
-            <label class="control-label"><i class="ion-person"></i>Title </label>
+            <label class="control-label"><i class="ion-person"></i> Title </label>
             <input type="text" value="John" class="form-control" ng-model="markin.title" />
           </div>
 
           <div class="form-group">
-            <label class="control-label"><i class="ion-person"></i>Pick a date and time</label>
+            <label class="control-label"><i class="glyphicon glyphicon-check"></i> Pick a date and time</label>
             <p class="input-group">
               <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="markin.dt" is-open="status.opened" max-date="'2020-06-22'" datepicker-options="dateOptions"  ng-required="true"
                           close-text="Close"/>
@@ -41,14 +42,14 @@
           </div>
 
           <div class="form-group">
-            <label for="sel1">Priority:</label>
+            <label><i class="glyphicon glyphicon-folder-close"></i> Priority:</label>
               <select ng-model="markin.priority" class="form-control" >
                 <option>High</option>
                 <option>Average</option>
                 <option>low</option>
               </select>
             <br>
-            <label class="control-label"><span class="glyphicon glyphicon-pencil"></span>Description</label>
+            <label class="control-label"><span class="glyphicon glyphicon-pencil"></span> Description</label>
             <textarea class="form-control" rows="3" ng-model="markin.description"></textarea>
           </div>
           <div class="checkbox disabled">
