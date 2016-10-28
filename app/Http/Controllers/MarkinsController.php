@@ -28,6 +28,9 @@ class MarkinsController extends Controller
         $markin->description = $request->input('description');
         $markin->latitude= $request->input('latitude');
         $markin->longitude = $request->input('longitude');
+        $markin->when = $request->input('dt');
+
+
         $markin->save();
 
         return 'Markin record successfully created with id ' . $markin->markin_id;
@@ -37,7 +40,7 @@ class MarkinsController extends Controller
       {
           $user = User::find($request['user']['sub']);
           $output = Markin::where('user_id','=',$user->id)
-            ->where('status','=','False')->get();
+            ->where('status','=','True')->get();
           return $output;
       }
 
@@ -45,7 +48,7 @@ class MarkinsController extends Controller
       {
           $user = User::find($request['user']['sub']);
           $output = Markin::where('user_id','=',$user->id)
-            ->where('status','=','True')->get();
+            ->where('status','=','False')->get();
           return $output;
       }
 

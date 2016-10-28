@@ -1,6 +1,8 @@
 angular.module('MyApp')
   .controller('MarkinCtrl', function($scope, $auth, toastr, Account, $http, NgMap, ngGPlacesAPI) {
     $scope.storeMarkin = function() {
+      var fmt = new DateFormatter();
+      $scope.markin.dt = fmt.formatDate($scope.markin.dt, 'd-F-Y h:i A');
       console.log($scope.markin);
       Account.storeMarkin($scope.markin)
         .then(function() {
@@ -32,7 +34,7 @@ angular.module('MyApp')
         $scope.status.opened = true;
       };
 
-      $scope.formats = ['dd-MMMM-yyyy hh:mm:ss', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+      $scope.formats = ['dd-MMMM-yyyy hh:mm', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
       $scope.format = $scope.formats[0];
 
       $scope.status = {
@@ -60,16 +62,16 @@ angular.module('MyApp')
       var markin = this;
       markin.address = "Panduranga Nagar, Bengaluru, Karnataka";
       markin.title = "First doctor visit";
-      markin.status = "False";
+      markin.status = "True";
       markin.latitude = 79.4;
       markin.longitude = 26.3;
 
       $scope.stateChanged = function (qId) {
          if($scope.answers[qId]){ //If it is checked
-             markin.status = "True"
+             markin.status = "False"
          }
          else {
-             markin.status = "False"
+             markin.status = "True"
          }
       }
 

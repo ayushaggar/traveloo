@@ -18,7 +18,6 @@ angular.module('MyApp')
       Account.getDashboard2()
         .then(function(response) {
           $scope.events2 = response.data;
-          console.log($scope.events2);
         })
         .catch(function(response) {
           toastr.error(response.data.message, response.status, { timeOut: 200 });

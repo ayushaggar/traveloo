@@ -5,7 +5,9 @@
     </timeline-badge>
     <timeline-panel class="warning">
       <timeline-heading>
-        <h4> {{event.title}} <span class="label label-primary"> Priority - {{event.priority}}</span></h4>
+        <h4> {{event.title}} </h4>
+        <span class="label label-danger"> At - {{event.when}}</span>
+        <span class="label label-primary"> Priority - {{event.priority}}</span>
       </timeline-heading>
       <div class="panel-heading">{{event.description}}</div>
       <ng-map zoom="10" center="{{event.latitude}},{{event.longitude}}" >
@@ -37,7 +39,9 @@
     </timeline-badge>
     <timeline-panel class="warning">
       <timeline-heading>
-        <h4> {{event2.title}} <span class="label label-primary"> Priority - {{event2.priority}}</span></h4>
+        <h4> {{event2.title}} </h4>
+        <span class="label label-danger"> At - {{event2.when}}</span>
+        <span class="label label-primary"> Priority - {{event2.priority}}</span>
       </timeline-heading>
       <div class="panel-heading">{{event2.description}}</div>
     </timeline-panel>

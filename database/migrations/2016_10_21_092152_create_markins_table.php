@@ -16,7 +16,7 @@ class CreateMarkinsTable extends Migration
             $table->increments('markin_id');
             $table->integer('user_id')->nullable();
             $table->string('title')->nullable();
-            $table->date('when')->nullable();
+            $table->string('when')->nullable();
             $table->string('status')->nullable();
             $table->string('priority')->nullable();
             $table->text('description')->nullable();
