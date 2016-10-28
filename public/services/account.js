@@ -12,6 +12,9 @@ angular.module('MyApp')
       },
       getDashboard: function(dashboardData) {
         return $http.post('/api/dashboard', dashboardData);
+      },
+      getDashboard2: function(dashboardData2) {
+        return $http.post('/api/dashboard2', dashboardData2);
       }
     };
   });

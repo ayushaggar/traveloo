@@ -60,6 +60,18 @@ angular.module('MyApp')
       var markin = this;
       markin.address = "Panduranga Nagar, Bengaluru, Karnataka";
       markin.title = "First doctor visit";
+      markin.status = "False";
+      markin.latitude = 79.4;
+      markin.longitude = 26.3;
+
+      $scope.stateChanged = function (qId) {
+         if($scope.answers[qId]){ //If it is checked
+             markin.status = "True"
+         }
+         else {
+             markin.status = "False"
+         }
+      }
 
 
       $scope.placeChanged = function() {
@@ -70,8 +82,6 @@ angular.module('MyApp')
           markin.longitude = $scope.pos.lng()
           console.log($scope.pos.lat(),$scope.pos.lng());
       }
-
-      $scope.readyForMap = true;
 
       NgMap.getMap().then(function(map) {
           $scope.map = map;
@@ -87,7 +97,7 @@ angular.module('MyApp')
            $scope.pos = this.getPosition();
            console.log($scope.pos.lat(),$scope.pos.lng());
            markin.latitude = $scope.pos.lat();
-           markin.longitude = $scope.pos.lng()
+           markin.longitude = $scope.pos.lng();
            $scope.map.setCenter($scope.pos);
            var geocoder = new google.maps.Geocoder();
            var latlng = new google.maps.LatLng($scope.pos.lat(), $scope.pos.lng());

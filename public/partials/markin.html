@@ -8,7 +8,7 @@
             <div ng-show="markin.place">
               Nearby Places = {{data || "loading..."}}
             </div>
-              <ng-map ng-if="readyForMap" center="{{markin.address}}" zoom="10" >
+              <ng-map center="{{markin.address}}" zoom="10" >
                   <directions
                     suppress-markers="true"
                     panel="directions-panel"
@@ -68,10 +68,10 @@
             <label class="control-label"><span class="glyphicon glyphicon-pencil"></span> Description</label>
             <textarea class="form-control" rows="3" ng-model="markin.description"></textarea>
           </div>
-          <div class="checkbox disabled">
-            <label><input ng-model="markin.status" type="checkbox" value="">Visited</label>
+          <div class="checkbox ">
+            <label><input type="checkbox" ng-model="answers[ID]" ng-change="stateChanged(ID)" /> Visited</label>
           </div>
-          <input type="hidden" name="country" value="Norway">
+          <input class="form-control" type="hidden" value="" ng-model="markin.status"/>
           <input class="form-control" type="hidden" value="" ng-model="markin.latitude"/>
           <input class="form-control" type="hidden" value="" ng-model="markin.longitude"/>
           <button class="btn btn-lg btn-success">Update Place</button>

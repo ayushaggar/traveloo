@@ -12,7 +12,22 @@ angular.module('MyApp')
         });
     };
 
+
+
+    $scope.getDashboard2 = function() {
+      Account.getDashboard2()
+        .then(function(response) {
+          $scope.events2 = response.data;
+          console.log($scope.events2);
+        })
+        .catch(function(response) {
+          toastr.error(response.data.message, response.status, { timeOut: 200 });
+        });
+    };
+
     $scope.getDashboard();
+
+    $scope.getDashboard2();
 
     NgMap.getMap().then(function(map) {
         $scope.map = map;

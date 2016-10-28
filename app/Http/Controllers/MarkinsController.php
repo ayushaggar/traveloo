@@ -36,7 +36,17 @@ class MarkinsController extends Controller
       public function getDashboard(Request $request)
       {
           $user = User::find($request['user']['sub']);
-          $output = Markin::where('user_id','=',$user->id)->get();
+          $output = Markin::where('user_id','=',$user->id)
+            ->where('status','=','False')->get();
           return $output;
       }
+
+      public function getDashboard2(Request $request)
+      {
+          $user = User::find($request['user']['sub']);
+          $output = Markin::where('user_id','=',$user->id)
+            ->where('status','=','True')->get();
+          return $output;
+      }
+
 }

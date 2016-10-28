@@ -1,15 +1,22 @@
 <timeline>
   <timeline-event ng-repeat="event in events">
     <timeline-badge class="warning">
-      <i class="glyphicon glyphicon-check"></i>
+      <i class="glyphicon glyphicon-plus"></i>
     </timeline-badge>
     <timeline-panel class="warning">
       <timeline-heading>
-        <h4>{{event.title}}</h4>
+        <h4> {{event.title}} <span class="label label-primary"> Priority - {{event.priority}}</span></h4>
       </timeline-heading>
       <div class="panel-heading">{{event.description}}</div>
       <ng-map zoom="10" center="{{event.latitude}},{{event.longitude}}" >
-          <street-view-panorama
+        <directions
+          suppress-markers="false"
+          panel="directions-panel"
+          travel-mode="{{travelMode}}"
+          origin="Vandana Homes, Millennium Ave, Panduranga Nagar, Bengaluru, Karnataka 560076"
+          destination="{{event.latitude}},{{event.longitude}}">
+        </directions>
+        <street-view-panorama
             click-to-go="false"
             disable-default-u-i="false"
             disable-double-click-zoom="false"
@@ -17,8 +24,22 @@
             scrollwheel="true"
             enable-close-button="true"
             visible="true">
-          </street-view-panorama>
-        </ng-map>
+        </street-view-panorama>
+      </ng-map>
+    </timeline-panel>
+  </timeline-event>
+</timeline>
+
+<timeline>
+  <timeline-event ng-repeat="event2 in events2">
+    <timeline-badge class="warning">
+      <i class="glyphicon glyphicon-ok"></i>
+    </timeline-badge>
+    <timeline-panel class="warning">
+      <timeline-heading>
+        <h4> {{event2.title}} <span class="label label-primary"> Priority - {{event2.priority}}</span></h4>
+      </timeline-heading>
+      <div class="panel-heading">{{event2.description}}</div>
     </timeline-panel>
   </timeline-event>
 </timeline>
