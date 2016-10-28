@@ -58,7 +58,7 @@ angular.module('MyApp')
       $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC-NYuKvQBIVbmZjiBs5m3WJVW_Iws_LfA";
 
       var markin = this;
-      markin.address = "Delhi";
+      markin.address = "Panduranga Nagar, Bengaluru, Karnataka";
       markin.title = "First doctor visit";
 
 
@@ -70,6 +70,8 @@ angular.module('MyApp')
           markin.longitude = $scope.pos.lng()
           console.log($scope.pos.lat(),$scope.pos.lng());
       }
+
+      $scope.readyForMap = true;
 
       NgMap.getMap().then(function(map) {
           $scope.map = map;
@@ -84,6 +86,8 @@ angular.module('MyApp')
       $scope.getCurrentLocation = function(){
            $scope.pos = this.getPosition();
            console.log($scope.pos.lat(),$scope.pos.lng());
+           markin.latitude = $scope.pos.lat();
+           markin.longitude = $scope.pos.lng()
            $scope.map.setCenter($scope.pos);
            var geocoder = new google.maps.Geocoder();
            var latlng = new google.maps.LatLng($scope.pos.lat(), $scope.pos.lng());
@@ -93,9 +97,7 @@ angular.module('MyApp')
                    markin.address = results[1].formatted_address;
                    console.log(results[1].formatted_address);
                    console.log(markin.address);
-                   document.getElementById("searchplace").value = markin.address;
-                   markin.latitude = $scope.pos.lat();
-                   markin.longitude = $scope.pos.lng()
+                   document.getElementById("searchplace").value = markin.address
                  } else {
                      toastr.success('Location not found - Try again', { timeOut: 200 });
                  }
@@ -105,4 +107,28 @@ angular.module('MyApp')
            });
 
         }
+
+    $scope.showMydirc=false;
+    $scope.showdirectclick = true;
+    $scope.showhideclick = false;
+
+    $scope.directClick = function() {
+      $scope.showMydirc=true;
+      $scope.showdirectclick = false;
+      $scope.showhideclick = true;
+    }
+
+    $scope.hideClick = function() {
+      $scope.showMydirc=false;
+      $scope.showhideclick = false;
+      $scope.showdirectclick = true;
+    }
+
+  });
+
+  angular.module('MyApp').directive('mainArea', function() {
+      return {
+          restrict: "E",
+          template: '<div id="directions-panel" style="height: 180px; overflow: auto"></div>',
+      }
   });

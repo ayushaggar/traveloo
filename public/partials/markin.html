@@ -8,12 +8,28 @@
             <div ng-show="markin.place">
               Nearby Places = {{data || "loading..."}}
             </div>
-              <ng-map center="{{markin.address}}" zoom="10" >
-                  <marker draggable="true" on-dragend="getCurrentLocation()" position="{{markin.address}}"></marker>
+              <ng-map ng-if="readyForMap" center="{{markin.address}}" zoom="10" >
+                  <directions
+                    suppress-markers="true"
+                    panel="directions-panel"
+                    travel-mode="{{travelMode}}"
+                    origin="Vandana Homes, Millennium Ave, Panduranga Nagar, Bengaluru, Karnataka 560076"
+                    destination="{{markin.latitude}},{{markin.longitude}}">
+                  </directions>
+                  <marker id="end" draggable="true" on-dragend="getCurrentLocation()" position="{{markin.address}}"></marker>
               </ng-map>
               <br>
-              <button type="button" class="btn btn-primary" ng-click="filterClick()">Filter</button>
-
+              <b>Mode of Travel: </b>
+              <select ng-model="travelMode" ng-init="travelMode='DRIVING'">
+                <option value="DRIVING">Driving</option>
+                <option value="WALKING">Walking</option>
+                <option value="BICYCLING">Bicycling</option>
+                <option value="TRANSIT">Transit</option>
+              </select>
+              <button ng-show="showdirectclick" type="button" class="btn btn-primary" ng-click="directClick()">Direction</button>
+              <button ng-show="showhideclick" type="button" class="btn btn-primary" ng-click="hideClick()">Hide</button>
+              <main-area ng-show="showMydirc">
+              </main-area>
         </div>
       </div>
     </div>

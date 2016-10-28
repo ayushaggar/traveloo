@@ -1,5 +1,5 @@
 angular.module('MyApp')
-  .controller('DashboardCtrl', function($scope, $auth, toastr, Account) {
+  .controller('DashboardCtrl', function($scope, $auth, toastr, Account, NgMap) {
 
     $scope.getDashboard = function() {
       Account.getDashboard()
@@ -13,5 +13,9 @@ angular.module('MyApp')
     };
 
     $scope.getDashboard();
+
+    NgMap.getMap().then(function(map) {
+        $scope.map = map;
+    });
 
   });

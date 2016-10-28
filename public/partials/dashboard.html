@@ -7,7 +7,18 @@
       <timeline-heading>
         <h4>{{event.title}}</h4>
       </timeline-heading>
-      <p>{{event.description}}</p>
+      <div class="panel-heading">{{event.description}}</div>
+      <ng-map zoom="10" center="{{event.latitude}},{{event.longitude}}" >
+          <street-view-panorama
+            click-to-go="false"
+            disable-default-u-i="false"
+            disable-double-click-zoom="false"
+            position= "{{event.latitude}},{{event.longitude}}"
+            scrollwheel="true"
+            enable-close-button="true"
+            visible="true">
+          </street-view-panorama>
+        </ng-map>
     </timeline-panel>
   </timeline-event>
 </timeline>
