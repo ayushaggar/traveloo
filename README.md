@@ -21,15 +21,13 @@ Profile page - For editing basic account info
 
 2) Laravel 5 - back-end service
 
-3) Angular 1.x - front-end application
+3) Angular 1.x - front-end application [Style guide] (https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md) 
 
 4) MySQL - database
 
 5) Google, Facebook, foursquare - Authentication
 
 6) [Amazon Ec2] (http://ec2-54-244-154-215.us-west-2.compute.amazonaws.com/) for Hosting
-
-7) [Style guide] (https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md)
 
 ## Tools output
 [Schema Diagram] (https://github.com/ayushaggar/traveloo/blob/master/Schema%20Diagram.svg)
