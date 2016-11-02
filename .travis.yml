@@ -1,42 +1,45 @@
 language: php
-
+ 
+sudo: true
+ 
 php:
+  - 5.5
   - 5.6
   - 7.0
-  - 7.1
-
-env:
-  global:
-    - setup=basic
-
-matrix:
-  allow_failures:
-    - php: 7.1
-  fast_finish: true
-  include:
-    - php: 5.6
-      env: setup=lowest
-    - php: 5.6
-      env: setup=stable
-
+  - hhvm
+ 
 sudo: false
-
+ 
+matrix:
+  fast_finish: true
+ 
+  allow_failures:
+    - php: hhvm
+ 
 cache:
   directories:
-    - $HOME/.composer/cache
-
-services:
-  - memcached
-  - redis-server
-
-before_install:
-  - if [[ $TRAVIS_PHP_VERSION != 7.1 ]] ; then phpenv config-rm xdebug.ini; fi
-  - echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-  - travis_retry composer self-update
-
+    - laravel
+ 
+services: mysql
+ 
 install:
-  - if [[ $setup = 'basic' ]]; then travis_retry composer install --no-interaction --prefer-dist --no-suggest; fi
-  - if [[ $setup = 'stable' ]]; then travis_retry composer update --prefer-dist --no-interaction --prefer-stable --no-suggest; fi
-  - if [[ $setup = 'lowest' ]]; then travis_retry composer update --prefer-dist --no-interaction --prefer-lowest --prefer-stable --no-suggest; fi
-
-script: vendor/bin/phpunit
+  # create a new database for the hyn connection
+  - export DB_USERNAME=travis DB_DATABASE=hyn DB_PASSWORD= QUEUE_DRIVER=sync
+  # specify the laravel service providers to insert
+  - export PACKAGE_PROVIDER="
+    Kevupton\\\\Bookings\\\\Providers\\\\BookingsServiceProvider::class,
+    Kevupton\\\\Timetables\\\\Providers\\\\TimetablesServiceProvider::class"
+  #specify the seed class to seed the data
+  - export SEED_CLASS=TestSeeds::class
+  #specify the package to test
+  - export PACKAGE_NAME=kevupton/bookings
+  #run the setup script
+  - curl -s https://raw.githubusercontent.com/kevupton/docker-laravel-tests/master/setup.sh | bash
+ 
+script:
+  #script to setup the package for testing
+  - cd laravel
+  - composer update
+  - php artisan vendor:publish --force
+  - php artisan migrate --seed #setups the migrations and seeding
+  - phpunit "vendor/$PACKAGE_NAME" #runs the phpunit just for your package.
