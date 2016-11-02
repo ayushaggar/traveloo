@@ -1,13 +1,6 @@
 ##Objective				
 Online travel diary and place locator based on user current location. Live [here] (http://ec2-54-244-154-215.us-west-2.compute.amazonaws.com/)
 
-## Tools
-[Schema Diagram] (https://github.com/ayushaggar/traveloo/blob/master/Schema%20Diagram.svg)
-
-<a href="https://codeclimate.com/repos/58186c52fac44e37ac004058/feed">
-<img src="https://codeclimate.com/repos/58186c52fac44e37ac004058/badges/e7a5d2bb2f1f9a3fe444/gpa.svg" />
-</a>
-
 ## Components / features		
 
 User can login using their email, facebook, google or foursquare.
@@ -35,6 +28,15 @@ Profile page - For editing basic account info
 5) Google, Facebook, foursquare - Authentication
 
 6) [Amazon Ec2] (http://ec2-54-244-154-215.us-west-2.compute.amazonaws.com/) for Hosting
+
+7) [Style guide] (https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md)
+
+## Tools output
+[Schema Diagram] (https://github.com/ayushaggar/traveloo/blob/master/Schema%20Diagram.svg)
+
+<a href="https://codeclimate.com/repos/58186c52fac44e37ac004058/feed">
+<img src="https://codeclimate.com/repos/58186c52fac44e37ac004058/badges/e7a5d2bb2f1f9a3fe444/gpa.svg" />
+</a>
 
 ## More Features for future
 
