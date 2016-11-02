@@ -1,6 +1,9 @@
 ##Objective				
 Online travel diary and place locator based on user current location. Live [here] (http://ec2-54-244-154-215.us-west-2.compute.amazonaws.com/)
 
+## Tools
+[Schema Diagram] (https://github.com/ayushaggar/traveloo/blob/master/Schema%20Diagram.svg)
+
 ## Components / features		
 
 User can login using their email, facebook, google or foursquare.
