@@ -27,12 +27,16 @@ install:
   - export DB_USERNAME=travis DB_DATABASE=hyn DB_PASSWORD= QUEUE_DRIVER=sync
   # specify the laravel service providers to insert
   - export PACKAGE_PROVIDER="
-    Kevupton\\\\Bookings\\\\Providers\\\\BookingsServiceProvider::class,
-    Kevupton\\\\Timetables\\\\Providers\\\\TimetablesServiceProvider::class"
+    app\\\\Providers\\\\AppServiceProvider::class,
+    app\\\\Providers\\\\AuthServiceProvider::class,
+    app\\\\Providers\\\\BusServiceProvider::class,
+    app\\\\Providers\\\\ConfigServiceProvider::class,
+    app\\\\Providers\\\\RouteServiceProvider::class,
+    app\\\\Providers\\\\EventServiceProvider::class"
   #specify the seed class to seed the data
-  - export SEED_CLASS=TestSeeds::class
+  - export SEED_CLASS=DatabaseSeeder::class
   #specify the package to test
-  - export PACKAGE_NAME=kevupton/bookings
+  - export PACKAGE_NAME=app
   #run the setup script
   - curl -s https://raw.githubusercontent.com/kevupton/docker-laravel-tests/master/setup.sh | bash
  
