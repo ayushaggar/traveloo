@@ -5,7 +5,7 @@ return [
 	'token_secret' => 'some random string',
 	'facebook_secret' => 'c37df1c157576812957eb60b5f7db786',
 	'foursquare_secret' => '2KQVHRIXOZWR43IPT2CTYOATYHRWKBGM15HD5HUIORQIYZKO',
-	'google_secret' => '',
+	'google_secret' => 'vZjpc210qVMC25eAIta58Zox',
 
 
 	/*
