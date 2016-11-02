@@ -4,7 +4,7 @@ Online travel diary and place locator based on user current location. Live [here
 ## Tools
 [Schema Diagram] (https://github.com/ayushaggar/traveloo/blob/master/Schema%20Diagram.svg)
 
-{<img src="https://codeclimate.com/repos/58186c52fac44e37ac004058/badges/e7a5d2bb2f1f9a3fe444/gpa.svg" />}
+<img src="https://codeclimate.com/repos/58186c52fac44e37ac004058/badges/e7a5d2bb2f1f9a3fe444/gpa.svg" />
 [Here](https://codeclimate.com/repos/58186c52fac44e37ac004058/feed)
 
 ## Components / features		
