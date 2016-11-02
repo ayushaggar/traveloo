@@ -1,3 +1,6 @@
+{<img src="https://codeclimate.com/repos/58186c52fac44e37ac004058/badges/e7a5d2bb2f1f9a3fe444/gpa.svg" />}[https://codeclimate.com/repos/58186c52fac44e37ac004058/feed]
+{<img src="https://codeclimate.com/repos/58186c52fac44e37ac004058/badges/e7a5d2bb2f1f9a3fe444/issue_count.svg" />}[https://codeclimate.com/repos/58186c52fac44e37ac004058/feed]
+
 ##Objective				
 Online travel diary and place locator based on user current location. Live [here] (http://ec2-54-244-154-215.us-west-2.compute.amazonaws.com/)
 
