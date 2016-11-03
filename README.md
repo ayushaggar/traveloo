@@ -36,6 +36,8 @@ Profile page - For editing basic account info
 <img src="https://codeclimate.com/repos/58186c52fac44e37ac004058/badges/e7a5d2bb2f1f9a3fe444/gpa.svg" />
 </a>
 
+[Apiary] (https://github.com/ayushaggar/traveloo/blob/master/apiary.apib)
+
 ## More Features for future
 
 1) Users can look for various places to go using filter given by user like airport, gym etc
