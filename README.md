@@ -36,7 +36,7 @@ Profile page - For editing basic account info
 <img src="https://codeclimate.com/repos/58186c52fac44e37ac004058/badges/e7a5d2bb2f1f9a3fe444/gpa.svg" />
 </a>
 
-[Apiary] (https://github.com/ayushaggar/traveloo/blob/master/apiary.apib)
+[Apiary] (http://docs.traveloo.apiary.io/)
 
 ## More Features for future
 
