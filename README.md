@@ -40,6 +40,8 @@ Profile page - For editing basic account info
 
 [New relic] (https://rpm.newrelic.com/accounts/1465403/applications/27058071)
 
+[Sentry] (https://sentry.io/Practo/traveloo-jr/)
+
 ## More Features for future
 
 1) Users can look for various places to go using filter given by user like airport, gym etc
