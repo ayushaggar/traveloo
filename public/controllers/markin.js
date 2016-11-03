@@ -6,9 +6,11 @@ angular.module('MyApp')
       console.log($scope.markin);
       Account.storeMarkin($scope.markin)
         .then(function() {
+          Raven.captureMessage('New place added');
           toastr.success('Place has been added', { timeOut: 200 });
         })
         .catch(function(response) {
+          Raven.captureMessage(response.data.message);
           toastr.error(response.data.message, response.status, { timeOut: 200 });
         });
     };

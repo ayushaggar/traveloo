@@ -4,6 +4,7 @@ angular.module('MyApp')
     $scope.getDashboard = function() {
       Account.getDashboard()
         .then(function(response) {
+	  Raven.captureMessage('Timeline updated!');
           $scope.events = response.data;
           console.log($scope.events);
         })

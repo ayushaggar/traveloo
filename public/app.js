@@ -1,4 +1,4 @@
-angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.router', 'satellizer', 'ui.bootstrap', 'ui.bootstrap.datetimepicker','angular-timeline','ngMap','ngGPlaces'])
+angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.router', 'satellizer', 'ui.bootstrap', 'ui.bootstrap.datetimepicker','angular-timeline','ngMap','ngGPlaces','ngRaven'])
   .config(function($stateProvider, $urlRouterProvider, $authProvider) {
 
     /**

@@ -4,17 +4,21 @@ angular.module('MyApp')
       Account.getProfile()
         .then(function(response) {
           $scope.user = response.data;
+          Raven.captureMessage('Got user profile!');
         })
         .catch(function(response) {
+	  Raven.captureMessage(response.data.message);
           toastr.error(response.data.message, response.status, { timeOut: 200 });
         });
     };
     $scope.updateProfile = function() {
       Account.updateProfile($scope.user)
         .then(function() {
+	  Raven.captureMessage('Updated user profile!');
           toastr.success('Profile has been updated',{ timeOut: 200 });
         })
         .catch(function(response) {
+	  Raven.captureMessage(response.data.message);
           toastr.error(response.data.message, response.status, { timeOut: 200 });
         });
     };
