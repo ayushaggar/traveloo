@@ -1,0 +1,132 @@
+FORMAT: 1A
+HOST: http://traveloo.apiblueprint.org/
+
+# Traveloo
+Travel diary and place locator api based on user current location.
+
+## Individual User [/me]
+
+Me is a simple API allowing users to edit there profile data.
+
+### Update profile data [PUT]
+
++ Response 200 (application/json)
+
+        [
+            id:"1",
+            displayName:"ayush aggarwal",
+            email: "ayushaggar@gmail.com"
+        ]
+        
+
+### Get profile data [GET]
+
++ Request (application/json)
+
+        [
+            id:"1"
+        ]
+
++ Response 201 (application/json)
+
+    + Headers
+
+    + Body
+
+            [
+                id:"1",
+                displayName:"ayush aggarwal",
+                email: "ayushaggar@gmail.com"
+            ]
+            
+            
+## Dashboard [/dashboard]
+
+Dashboard is a simple API allowing users to view have to visit places and edit them.
+
+### List all mark in places [POST]
+
++ Response 200 (application/json)
+
+        [
+            {
+                created_at: "2016-11-02 14:39:36",
+                description: "For regular checkup",
+                latitude:"13.37",
+                longitude:"77.68",
+                priority:"High",
+                status:"True",
+                title:"First doctor visit",
+                user_id:"6",
+                when:"18-November-2016 08:53 AM",
+                updated_at:"2016-11-02 14:39:36"
+            },
+            {
+                created_at: "2016-11-02 14:39:36",
+                description: "First foriegn trip",
+                latitude:"23.37",
+                longitude:"79.68",
+                priority:"low",
+                status:"True",
+                title:"Goa",
+                user_id:"6",
+                when:"27-November-2016 08:53 AM",
+                updated_at:"2016-11-02 14:39:36"
+            }
+        ]
+        
+
+## Dashboard2 [/dashboard2]
+
+Dashboard2 is a simple API allowing users to view visited places and edit them.
+
+### List all visited places [POST]
+
++ Response 200 (application/json)
+
+        [
+            {
+                created_at: "2016-11-02 14:39:36",
+                description: "For regular checkup",
+                latitude:"13.37",
+                longitude:"77.68",
+                priority:"High",
+                status:"False",
+                title:"First doctor visit",
+                user_id:"6",
+                when:"18-August-2016 08:53 AM",
+                updated_at:"2016-11-02 14:39:36"
+            },
+            {
+                created_at: "2016-11-02 14:39:36",
+                description: "For regular checkup",
+                latitude:"13.37",
+                longitude:"77.68",
+                priority:"High",
+                status:"False",
+                title:"First doctor visit",
+                user_id:"6",
+                when:"18-August-2016 08:53 AM",
+                updated_at:"2016-11-02 14:39:36"
+            }
+        ]
+
+## Markin [/markin]
+
+Markin is a simple API allowing users to save places.
+
+### New place update [POST]
+
++ Response 200 (application/json)
+
+        [
+            
+            address:"Delhi, India",
+            description:"Home visit after 10 months",
+            latitude:28.6618976,
+            longitude:77.22739580000007,
+            priority:"Average",
+            status:"True",
+            title:"Home visit",
+            dt:"26-November-2016 05:40 AM"
+        ]
