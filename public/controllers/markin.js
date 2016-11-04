@@ -9,6 +9,8 @@ angular.module('MyApp')
           console.log($scope.markin);
           Account.storeMarkin($scope.markin)
             .then(function() {
+	      $scope.markin.description ="";
+	      $scope.markin.title ="";
               Raven.captureMessage('New place added');
               toastr.success('Place has been added', { timeOut: 200 });
             })
@@ -18,10 +20,10 @@ angular.module('MyApp')
             });
       }
       else if ($scope.markin.status == "True" && d1>d2) {
-            toastr.success('Choose date/time after right now', { timeOut: 1000 });
+            toastr.error('Choose date/time after right now', { timeOut: 1000 });
       }
       else if ($scope.markin.status == "False" && d1<d2) {
-            toastr.success('Choose date/time before right now', { timeOut: 1000 });
+            toastr.error('Choose date/time before right now', { timeOut: 1000 });
       }
       else {
 
@@ -77,7 +79,7 @@ angular.module('MyApp')
 
       var markin = this;
       markin.address = "Panduranga Nagar, Bengaluru, Karnataka";
-      markin.title = "First doctor visit";
+      markin.title = "";
       markin.status = "True";
       markin.latitude = 79.4;
       markin.longitude = 26.3;

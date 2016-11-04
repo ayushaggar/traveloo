@@ -44,6 +44,9 @@
         <span class="label label-primary"> Priority - {{event2.priority}}</span>
       </timeline-heading>
       <div class="panel-heading">{{event2.description}}</div>
+      <ng-map zoom="5" center="{{event2.latitude}},{{event2.longitude}}" >
+        <marker draggable="false" position="{{event2.latitude}},{{event2.longitude}}"></marker>
+      </ng-map>    
     </timeline-panel>
   </timeline-event>
 </timeline>
