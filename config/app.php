@@ -153,7 +153,8 @@ return [
 		Illuminate\Translation\TranslationServiceProvider::class,
 		Illuminate\Validation\ValidationServiceProvider::class,
 		Illuminate\View\ViewServiceProvider::class,
-                
+                Intouch\LaravelNewrelic\NewrelicServiceProvider::class,
+                Sentry\SentryLaravel\SentryLaravelServiceProvider::class,
 		/*
          * Application Service Providers...
          */
@@ -208,7 +209,8 @@ return [
 		'Validator' => Illuminate\Support\Facades\Validator::class,
 		'View'      => Illuminate\Support\Facades\View::class,
 		'GoogleMaps' => 'GoogleMaps\Facade\GoogleMapsFacade',
-              
+                'Newrelic' => Intouch\LaravelNewrelic\Facades\Newrelic::class,
+                'Sentry' => Sentry\SentryLaravel\SentryFacade::class,
 	],
 
 ];
