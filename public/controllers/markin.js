@@ -2,18 +2,32 @@ angular.module('MyApp')
   .controller('MarkinCtrl', function($scope, $auth, toastr, Account, $http, NgMap, ngGPlacesAPI) {
     $scope.storeMarkin = function() {
       var fmt = new DateFormatter();
-      $scope.markin.dt = fmt.formatDate($scope.markin.dt, 'd-F-Y h:i A');
-      console.log($scope.markin);
-      Account.storeMarkin($scope.markin)
-        .then(function() {
-          Raven.captureMessage('New place added');
-          toastr.success('Place has been added', { timeOut: 200 });
-        })
-        .catch(function(response) {
-          Raven.captureMessage(response.data.message);
-          toastr.error(response.data.message, response.status, { timeOut: 200 });
-        });
+      d1 = new Date();
+      d2 = $scope.markin.dt;
+      if(($scope.markin.status == "False" && d1>=d2)||($scope.markin.status == "True" && d1<=d2)){ //If it is checked
+          $scope.markin.dt = fmt.formatDate($scope.markin.dt, 'd-F-Y h:i A');
+          console.log($scope.markin);
+          Account.storeMarkin($scope.markin)
+            .then(function() {
+              Raven.captureMessage('New place added');
+              toastr.success('Place has been added', { timeOut: 200 });
+            })
+            .catch(function(response) {
+              Raven.captureMessage(response.data.message);
+              toastr.error(response.data.message, response.status, { timeOut: 200 });
+            });
+      }
+      else if ($scope.markin.status == "True" && d1>d2) {
+            toastr.success('Choose date/time after right now', { timeOut: 1000 });
+      }
+      else if ($scope.markin.status == "False" && d1<d2) {
+            toastr.success('Choose date/time before right now', { timeOut: 1000 });
+      }
+      else {
+
+      }
     };
+
 
 
     $scope.today = function() {
