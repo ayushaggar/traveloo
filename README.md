@@ -38,7 +38,7 @@ Profile page - For editing basic account info
 
 [Apiary] (http://docs.traveloo.apiary.io/)
 
-[New relic] (https://rpm.newrelic.com/accounts/1465403/applications/27058071)
+[New relic] (https://rpm.newrelic.com/accounts/1465403/servers)
 
 [Sentry] (https://sentry.io/Practo/traveloo-jr/)
 
