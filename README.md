@@ -1,5 +1,5 @@
 ##Objective				
-Online travel diary and place locator based on user current location. Live [here] (http://ec2-54-244-154-215.us-west-2.compute.amazonaws.com/)
+Online travel diary and place locator based on user current location. 
 
 ## Components / features		
 
@@ -31,12 +31,6 @@ Profile page - For editing basic account info
 
 ## Tools output
 [Schema Diagram] (https://github.com/ayushaggar/traveloo/blob/master/Schema%20Diagram.svg)
-
-<a href="https://codeclimate.com/repos/58186c52fac44e37ac004058/feed">
-<img src="https://codeclimate.com/repos/58186c52fac44e37ac004058/badges/e7a5d2bb2f1f9a3fe444/gpa.svg" />
-</a>
-
-[Apiary] (http://docs.traveloo.apiary.io/)
 
 [New relic] (https://rpm.newrelic.com/accounts/1465403/servers)
 
